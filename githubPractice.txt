@@ -134,4 +134,6 @@ git push -u origin main // we have push our changes to main branch
 
 
 To check if your remote repo is linked or not:
-    git remote
+    git remote or git remote -v
+
+To push again: git push
