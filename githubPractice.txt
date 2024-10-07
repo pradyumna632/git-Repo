@@ -1,0 +1,126 @@
+To check the github version use following command : git --version
+
+configure git with Username and Email:
+    1. git config --global user.name "Pradyumna"
+    2. git config --global user.email pradyumnaangadi632@gmail.com
+
+To verify the Username and Email:
+    git config --list
+
+To track the files inside a folder:
+    git init
+
+To check the status of your local repo:
+    git status
+
+To add the files in staging area (not yet committed the changes):
+    git add <file>
+
+To commit the changes:
+    git commit -m "Message"
+
+To check the current branch:
+    git branch
+
+To check we have committed or not:
+    git log
+
+It give the difference between the last files and current files:
+    git diff
+
+view/check the files from old commit:
+    1. let's say you want to view changes of version 1.0 then,
+    2. copy the hash id of commit one
+    3. type the above command: 
+            git show hashID: <specific file name or path>
+    (because you may have added multiple files in that commit. so if want to view specific file that you have changed give file name)
+
+
+Git old version with git checkout:
+    1. I need to view the old files in my local repo, use following command
+        2. git checkout <hashID> -- (<specific filename> or *{for all files}) 
+    3. To move the master branch or to latest changes use following command
+        4.  git checkout master -- * or <filename>
+
+
+
+If we have made changes in our file by mistake and save it, --->
+
+Case 1: To undo changes, get the last successful change --
+now we want to go to our previous working version use following command (it will go back by 1 step):
+    git restore <filename> or . {for all files/multiple files}
+
+Case 2: if we added the changes using git add then..
+
+
+To check what changes we are committing after adding files in staging area:
+    git diff --cached
+
+To move the files from staging area to working directory:
+    git restore --staged {.} or {filename}
+Now file is moved from staging area to working directory, now restore the previous version:
+    git restore .
+
+
+Case 3: Let's say you made changes in file and added that file in staging area and in staging area you have 
+        made some changes. Now you want to restore those changes that you have made in staging area
+        (after you have added that file in staging area not when you committed changes)
+
+        // To get staged changes
+        git restore --worktree index.html
+
+        // now we will commit those changes that added in staging area
+        git commit -m "This is version 4"
+
+
+Case 4: Now let's suppose you have made changes in files and added that file in staging area 
+    and committed the wrong changes/files and now you want to go 1 step/commit back :
+        git reset --soft HEAD^ (uncommit and keep the changes)
+        git reset --hard HEAD^ (uncommit and discard the changes)
+
+
+
+If there are 20-30 commits in the project and we want to filter those commits:
+
+1. if we want to see last n changes with difference then:
+    git log -p -n (last n commits with diff). here p stands for patch. It will show what code have changed in last commit.
+
+2. if we want to see the summary of changed files then:
+    git log --stat
+
+3. if we want to view commit information in one line then use:
+    git log --pretty=oneline
+it will show hash code - commit Message
+
+4. if we want to view user defined filter(more customized way) then use:
+    git log --pretty= format:"%h -%an, %ar: %s"
+
+    h - hash
+    an - author name
+    ar - relate to (time from which we have committed changes from current time)
+    s - message of commit string
+
+
+if we want to check which information has added when:
+    git log -S function_name
+
+    function_name - String from file to check when it is added in the code
+
+    Ex: git log -S "h1" // when h1 tag is added in file
+
+
+if we want to check specific word is available in which version:
+    git log --grep="version" //It will check version word is available in which version
+
+
+In company some project last longer like 5-10 years, then if you want to see the commits from specific date
+then use the following commands:
+
+    git log --since="2024-01-01" : it will display the commits from 01 Jan 2024.
+    git log --until="2024-01-01" : it will display the commits before 01 Jan 2024.
+
+if you want to view the commits of specific user then use following command:
+    git log --author="Pradyumna"
+
+
+
