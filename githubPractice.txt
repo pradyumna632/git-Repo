@@ -123,4 +123,11 @@ if you want to view the commits of specific user then use following command:
     git log --author="Pradyumna"
 
 
+Now Create a git repo on your remote server
 
+Push an existing repo from command line:
+we have a local repo, Now we want that local repo changes to display on remote repo:
+
+git remote add origin <repo address>
+git branch -M main // we have made change of our master branch to main
+git push -u origin main // we have push our changes to main branch
