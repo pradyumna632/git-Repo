@@ -22,7 +22,7 @@ To commit the changes:
 To check the current branch:
     git branch
 
-To check we have committed or not:
+To check we have committed or not/ to see the old committed history:
     git log
 
 It give the difference between the last files and current files:
@@ -136,4 +136,7 @@ git push -u origin main // we have push our changes to main branch
 To check if your remote repo is linked or not:
     git remote or git remote -v
 
-To push again: git push
+To push again or to push the committed changes in remote repo: git push
+
+To pull the changes made in remote repo/ fetch the latest files from remote repo:
+    git pull
